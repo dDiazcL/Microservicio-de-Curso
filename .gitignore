@@ -1,0 +1,20 @@
+# Archivos generados por Maven o Gradle
+target/
+build/
+
+# Archivos binarios
+*.class
+*.jar
+*.war
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Spring
+*.iml

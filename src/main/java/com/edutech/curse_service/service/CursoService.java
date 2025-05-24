@@ -19,7 +19,7 @@ public class CursoService {
     private final CursoRepository cursoRepository;
     private final RestTemplate restTemplate;
 
-    private static final String USER_SERVICE_URL = "http://localhost:8082/profesores/";
+    private static final String USER_SERVICE_URL = "http://localhost:8082/profesores/obtenerProfe";
 
     public CursoService(CursoRepository cursoRepository, RestTemplate restTemplate) {
         this.cursoRepository = cursoRepository;

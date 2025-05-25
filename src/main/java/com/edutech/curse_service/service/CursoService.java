@@ -31,7 +31,7 @@ public class CursoService {
             // Validar existencia del profesor
             String url = USER_SERVICE_URL + idProfesor;
             Profesor profesor = restTemplate.getForObject(url, Profesor.class);
-            if (profesor == null || profesor.getId() == null) {
+            if (profesor == null) {
                 throw new RuntimeException("Profesor no encontrado");
             }
         } catch (Exception e) {

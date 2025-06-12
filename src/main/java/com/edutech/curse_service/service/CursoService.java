@@ -3,6 +3,8 @@ package com.edutech.curse_service.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -54,6 +56,9 @@ public class CursoService {
     }
 
     public Curso createCurso(Curso curso) {
+        if (cursoYaExiste(curso)) {
+            throw new RuntimeException("Ya existe un curso con los mismos datos.");
+        }
         return cursoRepository.save(curso);
     }
 
@@ -75,6 +80,12 @@ public class CursoService {
         return cursoRepository.save(curso);
     }
 
-
+    public boolean cursoYaExiste(Curso nuevoCurso) {
+    return cursoRepository.findAll().stream().anyMatch(curso ->
+        curso.getNombreCurso().equalsIgnoreCase(nuevoCurso.getNombreCurso()) &&
+        curso.getIdProfesor().equals(nuevoCurso.getIdProfesor()) &&
+        curso.getIdMateria().equals(nuevoCurso.getIdMateria())
+    );
+}
 
 }

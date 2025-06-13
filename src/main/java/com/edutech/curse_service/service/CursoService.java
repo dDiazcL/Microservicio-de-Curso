@@ -73,7 +73,7 @@ public class CursoService {
         curso.setModalidad(cursoDetails.getModalidad());
         curso.setCupoMaximo(cursoDetails.getCupoMaximo());
         curso.setIdProfesor(curso.getIdProfesor());
-        curso.setIdMateria(curso.getIdMateria());
+        curso.setMateria(curso.getMateria());
 
         return cursoRepository.save(curso);
     }
@@ -82,7 +82,7 @@ public class CursoService {
     return cursoRepository.findAll().stream().anyMatch(curso ->
         curso.getNombreCurso().equalsIgnoreCase(nuevoCurso.getNombreCurso()) &&
         curso.getIdProfesor().equals(nuevoCurso.getIdProfesor()) &&
-        curso.getIdMateria().equals(nuevoCurso.getIdMateria())
+        curso.getMateria().equals(nuevoCurso.getMateria())
     );
 }
 

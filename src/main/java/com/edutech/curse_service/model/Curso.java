@@ -1,6 +1,9 @@
 package com.edutech.curse_service.model;
 
+import com.edutech.curse_service.model.entity.Materia;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -37,8 +40,8 @@ public class Curso {
     @Column(nullable = false)
     private Long idProfesor;
 
-    @Column(nullable = false)
-    private Long idMateria;
+    @Embedded
+    private Materia materia;
 
 }
 

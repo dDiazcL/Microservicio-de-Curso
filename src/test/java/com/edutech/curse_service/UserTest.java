@@ -2,9 +2,12 @@ package com.edutech.curse_service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,6 +60,15 @@ public class UserTest {
         Curso result = cursoService.createCurso(curso);
         assertNotNull(result);
         assertEquals("Java Avanzado", result.getNombreCurso());
+    }
+
+    @Test
+    public void testBuscarCursoPorId_existente() {
+        when(cursoRepository.findById(1L)).thenReturn(Optional.of(curso));
+        Optional<Curso> result = cursoService.getCursoById(1L);
+
+        assertTrue(result.isPresent());
+        assertEquals(1L, result.get().getIdCurso());
     }
 
 }

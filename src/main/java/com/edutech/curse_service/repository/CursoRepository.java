@@ -12,6 +12,6 @@ public interface CursoRepository extends JpaRepository<Curso, Long>{
 // Puedes agregar consultas personalizadas aquí
     List<Curso> findByIdProfesor(Long idProfesor);
 
-    boolean existsByNombreCursoAndIdProfesorAndIdMateria(String nombreCurso, Long idProfesor, Long idMateria);
+    boolean existsByNombreCursoAndIdProfesorAndIdMateria_idMateria(String nombreCurso, Long idProfesor, Long idMateria);
 
 }

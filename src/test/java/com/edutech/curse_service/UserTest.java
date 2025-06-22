@@ -52,7 +52,7 @@ public class UserTest {
 
     @Test
     public void testCrearCurso_exito() {
-        when(cursoRepository.existsByNombreCursoAndIdProfesorAndIdMateria(
+        when(cursoRepository.existsByNombreCursoAndIdProfesorAndIdMateria_idMateria(
             any(), anyLong(), anyLong())).thenReturn(false);
 
         when(cursoRepository.save(any(Curso.class))).thenReturn(curso);

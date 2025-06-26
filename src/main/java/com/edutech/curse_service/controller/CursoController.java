@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.curse_service.model.Curso;
+import com.edutech.curse_service.model.dto.Materia;
 import com.edutech.curse_service.service.CursoService;
 
 import jakarta.validation.Valid;
@@ -71,4 +72,9 @@ public class CursoController {
         return ResponseEntity.ok(cursos);
     }
 
+    @GetMapping("/materias/alumno/{idAlumno}")
+    public ResponseEntity<List<Materia>> getMateriasByAlumno(@PathVariable Long idAlumno) {
+        List<Materia> materias = cursoService.findMateriasByIdAlumno(idAlumno);
+        return ResponseEntity.ok(materias);
+    }
 }

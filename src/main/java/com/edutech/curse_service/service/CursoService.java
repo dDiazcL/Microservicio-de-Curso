@@ -82,12 +82,13 @@ public class CursoService {
     }
 
     public boolean cursoYaExiste(Curso nuevoCurso) {
-    return cursoRepository.findAll().stream().anyMatch(curso ->
-        curso.getNombreCurso().equalsIgnoreCase(nuevoCurso.getNombreCurso()) &&
-        curso.getIdProfesor().equals(nuevoCurso.getIdProfesor()) &&
-        curso.getMateria().equals(nuevoCurso.getMateria()));
-    
+        return cursoRepository.findAll().stream().anyMatch(curso ->
+            curso.getNombreCurso().equalsIgnoreCase(nuevoCurso.getNombreCurso()) &&
+            curso.getIdProfesor().equals(nuevoCurso.getIdProfesor()) &&
+            curso.getMateria().getIdMateria().equals(nuevoCurso.getMateria().getIdMateria())
+        );
     }
+
 
     public List<Materia> findMateriasByIdAlumno(Long idAlumno) {
         String url = "http://localhost:8082/alumnos/" + idAlumno; //Ajustar puerto

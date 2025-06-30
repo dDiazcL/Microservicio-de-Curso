@@ -45,13 +45,8 @@ public class CursoController {
 
     @PostMapping
     public ResponseEntity<?> createCurso(@Valid @RequestBody Curso curso) {
-        try {
-            Curso creado = cursoService.createCurso(curso);
-            return ResponseEntity.status(HttpStatus.CREATED).body(creado);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-            .body("Ya existe un curso con el mismo nombre, profesor y materia.");
-        }
+        Curso creado = cursoService.createCurso(curso);
+        return ResponseEntity.status(HttpStatus.CREATED).body(creado);
     }
 
     @DeleteMapping("/{id}")

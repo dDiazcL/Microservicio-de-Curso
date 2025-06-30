@@ -12,6 +12,7 @@ import com.edutech.curse_service.model.dto.Alumno;
 import com.edutech.curse_service.model.dto.Materia;
 import com.edutech.curse_service.model.dto.Profesor;
 import com.edutech.curse_service.repository.CursoRepository;
+import com.edutech.exception.CursoDuplicadoException;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -58,7 +59,7 @@ public class CursoService {
 
     public Curso createCurso(Curso curso) {
         if (cursoYaExiste(curso)) {
-            throw new RuntimeException("Ya existe un curso con los mismos datos.");
+            throw new CursoDuplicadoException("Ya existe un curso con los mismos datos.");
         }
         return cursoRepository.save(curso);
     }

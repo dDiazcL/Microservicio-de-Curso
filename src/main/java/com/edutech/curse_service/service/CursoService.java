@@ -111,6 +111,5 @@ public class CursoService {
         })
         .distinct() //Evita duplicados si es que el alumno esta en mas de un curso con la misma materia
         .collect(Collectors.toList());
-
     }
 }

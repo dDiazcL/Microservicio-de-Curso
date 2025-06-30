@@ -56,6 +56,7 @@ public class CursoService {
     public Optional<Curso> getCursoById(Long id) {
         return cursoRepository.findById(id);
     }
+    
 
     public Curso createCurso(Curso curso) {
         if (cursoYaExiste(curso)) {

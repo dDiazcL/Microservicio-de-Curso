@@ -58,6 +58,9 @@ public class UserTest {
         when(cursoRepository.save(any(Curso.class))).thenReturn(curso);
 
         Curso result = cursoService.createCurso(curso);
+
+        System.out.println("Curso creado exitosamente: " + result);
+
         assertNotNull(result);
         assertEquals("Java Avanzado", result.getNombreCurso());
     }
@@ -66,6 +69,8 @@ public class UserTest {
     public void testBuscarCursoPorId_existente() {
         when(cursoRepository.findById(1L)).thenReturn(Optional.of(curso));
         Optional<Curso> result = cursoService.getCursoById(1L);
+
+        System.out.println("Resultado de búsqueda: " + result.orElse(null));
 
         assertTrue(result.isPresent());
         assertEquals(1L, result.get().getIdCurso());

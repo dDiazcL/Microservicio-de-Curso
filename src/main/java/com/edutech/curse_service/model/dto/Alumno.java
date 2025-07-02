@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Alumno {
 
-    private Long id;
-    private String nombreCompleto;
+    private String nombreUsuario;
+    private String email;
     private List<Long> idsCursos;
-    
+    private String estadoCuenta;
 }

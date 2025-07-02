@@ -23,7 +23,7 @@ public class CursoService {
     private final CursoRepository cursoRepository;
     private final RestTemplate restTemplate;
 
-    private static final String USER_SERVICE_URL = "http://localhost:8082/profesores/";
+    private static final String USER_SERVICE_URL = "http://44.208.149.48:8082/profesores/";
 
     public CursoService(CursoRepository cursoRepository, RestTemplate restTemplate) {
         this.cursoRepository = cursoRepository;
@@ -93,7 +93,7 @@ public class CursoService {
 
 
     public List<Materia> findMateriasByIdAlumno(Long idAlumno) {
-        String url = "http://localhost:8082/alumnos/" + idAlumno; //Ajustar puerto
+        String url = "http://44.208.149.48:8082/alumnos/" + idAlumno; //Ajustar puerto
         Alumno alumno =  restTemplate.getForObject(url, Alumno.class);
 
         if (alumno == null || alumno.getIdsCursos() == null || alumno.getIdsCursos().isEmpty()) {
